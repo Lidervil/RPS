@@ -8,9 +8,16 @@
     justify-content: center;
     align-items: center;
     display: flex;
+    flex-direction: column;
     padding: auto;
     margin: auto;
     height: 100vh;
+}
+
+.top {
+    display: flex;
+    padding: 32px;
+    gap: 1rem;
 }
 
 .middle {

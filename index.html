@@ -16,23 +16,25 @@
             <h1>Rock, Paper, Scissors THE GAME!</h1>
             <img src="/RPS/Man vs Machine.png" alt="">
             <div class="contenedores">
-                <button id="rock">
+                <button class="selbutton" data-selection="rock" >
                     Rock
                 </button>
-                <button id="paper">
+                <button class="selbutton" data-selection="paper">
                     Paper   
                 </button>
-                <button id="scissors">
+                <button class="selbutton" data-selection="scissors">
                     Scissors
                 </button>
             </div>
+            <span id="roleplay"></span>
         </div>
         <div class="top">
-
+            <p>Cpu score: <span id="scoreP"></span></p>
+            <p>Player score: <span id="scoreCPU"></span></p>
         </div>
     </div>
 
 
-    <script src="index.js"></script>
+    <script src="index.js" defer></script>
 </body>
 </html>

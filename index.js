@@ -7,65 +7,46 @@ function getComputerChoice() {
     } 
 } 
 
-function playRound() {
-    getPlayerChoice = getPlayerChoice.toLowerCase();
+function playRound(getPlayerChoice) {
     let getCpuChoice = getComputerChoice();
     if (getPlayerChoice == getCpuChoice){
-        console.log("It's a tie!") 
+        document.getElementById('roleplay').innerHTML = ("It's a tie!") 
     } else if (getPlayerChoice=='rock' && getCpuChoice=='scissors' || getPlayerChoice=='paper' && getCpuChoice=='rock' || getPlayerChoice=='scissors' && getCpuChoice=='paper' ) {
         scoreP++;
-        console.log(`You win ${getPlayerChoice} beats ${getCpuChoice}.`) 
+        document.getElementById('roleplay').innerHTML = (`You win ${getPlayerChoice} beats ${getCpuChoice}.`) 
     } else {
         scoreCPU++;
-        console.log(`You lose ${getCpuChoice} beats ${getPlayerChoice}.`) 
+        document.getElementById('roleplay').innerHTML = (`You lose ${getCpuChoice} beats ${getPlayerChoice}.`) 
     }
+    game()
 }
 
 function game() {
-    
+    document.querySelector('#scoreP').innerHTML = scoreP;
+    document.querySelector('#scoreCPU').innerHTML = scoreCPU;
     if (scoreP == 5) {
+        
+        scoreP = 0;
+        scoreCPU = 0;
         alert("You win :D");
-        scoreP == 0;
-        scoreCPU == 0;
     } else if (scoreCPU == 5) {
         alert('You lose!!!!!!');
-        scoreP == 0;
-        scoreCPU == 0;
+        scoreP = 0;
+        scoreCPU = 0;
     } 
 }
-
-
-
 
 var scoreP = 0;
 var scoreCPU = 0;
 
-var getPlayerChoice;
+const buttons = document.querySelectorAll('[data-selection]')
+buttons.forEach(buttons => {
+    buttons.addEventListener('click', e => {
+        const playerChoice = buttons.dataset.selection
+        playRound(playerChoice);
+    })
+})
 
-let rock = document.querySelector('#rock')
-let paper = document.querySelector('#paper')
-let scissors = document.querySelector('#scissors')
-
-
-rock.addEventListener('click', rocki());
-paper.addEventListener('click', paperi());
-scissors.addEventListener('click', scissorsi());
-
-function rocki() {
-    getPlayerChoice = "rock";
-    playRound();
-    game();
+function runGame(playerChoice) {
+    console.log(playerChoice)
 }
-function paperi() {
-    getPlayerChoice = "paper";
-    playRound();
-    game();
-}
-function scissorsi() {
-    getPlayerChoice = "scissors";
-    playRound();
-    game();
-}
-
-
-/* console.log(game()); */

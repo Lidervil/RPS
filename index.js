@@ -8,8 +8,7 @@ function getComputerChoice() {
 } 
 
 function playRound() {
-    let playerChoice = prompt('Insert your choice ');
-    let getPlayerChoice = playerChoice.toLowerCase();
+    getPlayerChoice = getPlayerChoice.toLowerCase();
     let getCpuChoice = getComputerChoice();
     if (getPlayerChoice == getCpuChoice){
         console.log("It's a tie!") 
@@ -23,19 +22,50 @@ function playRound() {
 }
 
 function game() {
-    for (let i = 0; i < 5; i++) {
-        playRound();
-    }
-    if (scoreP == scoreCPU) {
-        alert("It's a tie!");
-    } else if (scoreP > scoreCPU) {
-        alert("You win :D")
-    } else {
-        alert('You lose!!!!!!') 
-    }
+    
+    if (scoreP == 5) {
+        alert("You win :D");
+        scoreP == 0;
+        scoreCPU == 0;
+    } else if (scoreCPU == 5) {
+        alert('You lose!!!!!!');
+        scoreP == 0;
+        scoreCPU == 0;
+    } 
 }
+
+
+
 
 var scoreP = 0;
 var scoreCPU = 0;
 
-console.log(game());
+var getPlayerChoice;
+
+let rock = document.querySelector('#rock')
+let paper = document.querySelector('#paper')
+let scissors = document.querySelector('#scissors')
+
+
+rock.addEventListener('click', rocki());
+paper.addEventListener('click', paperi());
+scissors.addEventListener('click', scissorsi());
+
+function rocki() {
+    getPlayerChoice = "rock";
+    playRound();
+    game();
+}
+function paperi() {
+    getPlayerChoice = "paper";
+    playRound();
+    game();
+}
+function scissorsi() {
+    getPlayerChoice = "scissors";
+    playRound();
+    game();
+}
+
+
+/* console.log(game()); */

@@ -1,0 +1,32 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: auto;
+    margin: auto;
+    height: 100vh;
+}
+
+.middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10rem;
+}
+
+button {
+    padding: 32px 32px;
+    background-color: #f4f4f4;
+    /* border: 2px solid #ffffff; */
+}
+
+.contenedores { 
+    display: flex;
+    gap: 1rem;
+}
